@@ -10,7 +10,8 @@ import CommentBox from '../pages/CommentBox'
 function Feed() {
   const [posts, setPosts] = useState([]);
     const navigate = useNavigate();
-    const user = JSON.parse(localStorage.getItem("campusconnect-user"));
+    const storedUser = localStorage.getItem("campusconnect-user");
+    const user = storedUser ? JSON.parse(storedUser) : null;
 
 
   useEffect(() => {
