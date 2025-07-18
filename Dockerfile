@@ -10,9 +10,6 @@ RUN npm run build
 FROM node:18 as backend
 WORKDIR /app/server
 
-# Copy .env first
-COPY server/.env .env
-
 # Copy backend files
 COPY server/package*.json ./
 RUN npm install
