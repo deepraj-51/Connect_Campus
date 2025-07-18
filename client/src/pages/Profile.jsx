@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import { getUserPosts } from '../services/api'; // create this in your api file
+import { getUserPosts } from '../services/api';
 import '../style.css';
 
 function Profile() {
+  const storedUser = localStorage.getItem("campusconnect-user");
+  const user = storedUser ? JSON.parse(storedUser) : null;
   const [posts, setPosts] = useState([]);
-  const user = JSON.parse(localStorage.getItem("campusconnect-user"));
 
   useEffect(() => {
-    getUserPosts(user.id)
-      .then(res => setPosts(res.data))
-      .catch(err => console.error("Failed to fetch user's posts", err));
-  }, [user.id]);
+    if (user?.id) {
+      getUserPosts(user.id)
+        .then(res => setPosts(res.data))
+        .catch(err => console.error("Failed to fetch user's posts", err));
+    }
+  }, [user?.id]);
+
+  if (!user) {
+    return <p>User not logged in. Please log in to view your profile.</p>;
+  }
 
   return (
     <div className="page-container">
