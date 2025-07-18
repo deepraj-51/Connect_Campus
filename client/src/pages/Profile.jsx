@@ -4,7 +4,8 @@ import '../style.css';
 
 function Profile() {
   const [posts, setPosts] = useState([]);
-  const user = JSON.parse(localStorage.getItem("campusconnect-user"));
+  const storedUser = localStorage.getItem("campusconnect-user");
+  const user = storedUser ? JSON.parse(storedUser) : null;
 
   useEffect(() => {
     getUserPosts(user.id)
