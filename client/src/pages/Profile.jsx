@@ -1,0 +1,38 @@
+import React, { useEffect, useState } from 'react';
+import { getUserPosts } from '../services/api'; // create this in your api file
+import '../style.css';
+
+function Profile() {
+  const [posts, setPosts] = useState([]);
+  const user = JSON.parse(localStorage.getItem("campusconnect-user"));
+
+  useEffect(() => {
+    getUserPosts(user.id)
+      .then(res => setPosts(res.data))
+      .catch(err => console.error("Failed to fetch user's posts", err));
+  }, [user.id]);
+
+  return (
+    <div className="page-container">
+      <h2>👤 {user.name}'s Profile</h2>
+      <p><strong>Email:</strong> {user.email}</p>
+
+      <h3>📌 Your Posts</h3>
+      <div className="feed-container">
+        {posts.length === 0 ? <p>You haven't posted anything yet.</p> :
+          posts.map(post => (
+            <div className="post-card" key={post._id}>
+              <h4>{post.title}</h4>
+              <p>{post.body}</p>
+              {post.image && <img src={post.image} alt="post" className="feed-img" />}
+              <p><strong>Likes:</strong> {post.likes.length}</p>
+              <p><strong>Comments:</strong> {post.comments.length}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  );
+}
+
+export default Profile;
