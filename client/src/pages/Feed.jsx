@@ -12,10 +12,7 @@ function Feed() {
     const navigate = useNavigate();
     const storedUser = localStorage.getItem("campusconnect-user");
     const user = storedUser ? JSON.parse(storedUser) : null;
-<<<<<<< HEAD
     //const user = JSON.parse(localStorage.getItem("campusconnect-user"));
-=======
->>>>>>> f4f97442ee36dcba6e65fdf529fb7d22922c58ad
 
 
   useEffect(() => {
