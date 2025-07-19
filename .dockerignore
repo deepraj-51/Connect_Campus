@@ -1,0 +1,16 @@
+# Node modules
+client/node_modules
+server/node_modules
+
+# Env files
+client/.env
+server/.env
+
+# Build output
+client/dist
+server/public
+
+# Docker
+*.log
+*.pid
+*.tar
