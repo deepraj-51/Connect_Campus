@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: campusconnect
+    env: docker
+    repo: https://github.com/deepraj-51/Connect_Campus
+    region: oregon
+    plan: free
+    branch: main
+    dockerfilePath: ./Dockerfile
+    buildCommand: docker-compose build
+    startCommand: docker-compose up
+    autoDeploy: true
