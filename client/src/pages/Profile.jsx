@@ -6,6 +6,11 @@ function Profile() {
   const storedUser = localStorage.getItem("campusconnect-user");
   const user = storedUser ? JSON.parse(storedUser) : null;
   const [posts, setPosts] = useState([]);
+<<<<<<< HEAD
+=======
+  const storedUser = localStorage.getItem("campusconnect-user");
+  const user = storedUser ? JSON.parse(storedUser) : null;
+>>>>>>> f4f97442ee36dcba6e65fdf529fb7d22922c58ad
 
   useEffect(() => {
     if (user?.id) {
