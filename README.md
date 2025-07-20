@@ -11,13 +11,6 @@ CampusConnect is a full-stack college community platform where students can:
 
 ---
 
-## 🚀 Live Demo
-
-- **Frontend**: [https://campusconnect.vercel.app](https://campusconnect.vercel.app)
-- **Backend**: [https://campusconnect-api.onrender.com](https://campusconnect-api.onrender.com)
-
----
-
 ## 🛠️ Tech Stack
 
 ### Frontend
@@ -38,5 +31,5 @@ CampusConnect is a full-stack college community platform where students can:
 
 ---
 
-## 📁 Project Structure
+
 
